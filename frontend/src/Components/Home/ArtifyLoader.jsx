@@ -8,7 +8,7 @@ const ArtifyLoader = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // Adjust time as needed
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -70,24 +70,33 @@ const ArtifyLoader = () => {
         />
       </motion.div>
 
-      {/* Animated Dots */}
-      <div className="flex mt-12 space-x-2">
-        {[0, 1, 2].map((i) => (
-          <motion.div
-            key={i}
-            className="w-3 h-3 bg-purple-400 rounded-full"
-            animate={{
-              y: [0, -10, 0],
-              opacity: [0.6, 1, 0.6]
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              delay: i * 0.2
-            }}
-          />
-        ))}
-      </div>
+      {/* Animated Name Signature */}
+      <motion.div
+        className="mt-12"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+      >
+        <motion.p
+          className="text-gray-400 text-sm"
+          initial={{ strokeWidth: 0 }}
+          animate={{ strokeWidth: 1 }}
+          transition={{
+            duration: 1.5,
+            delay: 2
+          }}
+        >
+          Created by{' '}
+          <motion.span 
+            className="text-purple-300 font-medium"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 2.2 }}
+          >
+            Farhan Yousafzai
+          </motion.span>
+        </motion.p>
+      </motion.div>
     </div>
   );
 };
