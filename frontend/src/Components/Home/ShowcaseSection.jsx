@@ -31,7 +31,7 @@ const ShowcaseSection = () => {
               className="relative group overflow-hidden rounded-xl"
             >
               <img
-                src={`/showcase-${item}.jpg`}
+                src={`https://i.pinimg.com/736x/3d/c5/e7/3dc5e7f23a09dab901357f06c4978036.jpg`}
                 alt={`Showcase ${item}`}
                 className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -55,7 +55,7 @@ const ShowcaseSection = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="border border-purple-500 text-purple-400 hover:bg-purple-900/30 px-8 py-3 rounded-lg font-medium transition-colors"
+            className="border border-purple-500 text-purple-400 cursor-pointer hover:bg-purple-900/30 px-8 py-3 rounded-lg font-medium transition-colors"
           >
             View Full Gallery
           </motion.button>

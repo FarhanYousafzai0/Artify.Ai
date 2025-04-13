@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiDownload, FiShare2, FiRefreshCw } from 'react-icons/fi';
+import NavBar from '../Components/Home/NavBar';
 
 const TryNowPage = () => {
   const [prompt, setPrompt] = useState('');
@@ -17,6 +18,8 @@ const TryNowPage = () => {
   };
 
   return (
+    <>
+    <NavBar/>
     <div className="min-h-screen bg-black text-white pt-24 pb-12 px-4">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -129,6 +132,10 @@ const TryNowPage = () => {
         </div>
       </motion.div>
     </div>
+    
+    
+    
+    </>
   );
 };
 

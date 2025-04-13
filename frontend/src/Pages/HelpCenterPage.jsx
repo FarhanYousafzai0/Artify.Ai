@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import NavBar from '../Components/Home/NavBar';
 
 const HelpCenterPage = () => {
   const categories = [
@@ -44,6 +45,8 @@ const HelpCenterPage = () => {
   const [activeCategory, setActiveCategory] = useState(0);
 
   return (
+    <>
+    <NavBar/>
     <div className="min-h-screen bg-black text-white pt-24 pb-12 px-4">
       <div className="max-w-6xl mx-auto">
         <motion.div
@@ -76,7 +79,7 @@ const HelpCenterPage = () => {
                   >
                     <button
                       onClick={() => setActiveCategory(index)}
-                      className={`w-full text-left px-4 py-3 rounded-lg flex items-center transition-colors ${
+                      className={`w-full text-left px-4 py-3 rounded-lg flex items-center cursor-pointer transition-colors ${
                         activeCategory === index 
                           ? 'bg-gray-800 text-white' 
                           : 'text-gray-300 hover:bg-gray-800 hover:text-white'
@@ -153,6 +156,9 @@ const HelpCenterPage = () => {
         </div>
       </div>
     </div>
+    
+    
+    </>
   );
 };
 

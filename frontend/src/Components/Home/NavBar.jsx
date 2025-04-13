@@ -32,13 +32,10 @@ const NavBar = () => {
     };
   }, [prevScrollPos, mobileMenuOpen]);
 
-  // Updated to match your route paths exactly
   const navItems = [
-   
-    { name: 'Gallery', path: '/galery', icon: <FiGrid /> }, // Note: matches your '/galery' route
-    { name: 'Create Post', path: '/create-post', icon: <FiImage /> },
+    { name: 'Gallery', path: '/galery', icon: <FiGrid /> },
     { name: 'Pricing', path: '/pricing', icon: <FiDollarSign /> },
-    { name: 'Help', path: '/help', icon: <FiHelpCircle /> }, // Matches your '/help' route
+    { name: 'Help', path: '/help', icon: <FiHelpCircle /> },
   ];
 
   const sidebarVariants = {
@@ -81,7 +78,7 @@ const NavBar = () => {
                 <Link 
                   key={item.path}
                   to={item.path}
-                  className="relative text-gray-300 hover:text-white transition-colors px-2 py-1 group"
+                  className="relative text-gray-300 hover:text-white transition-colors px-2 py-1 group cursor-pointer"
                 >
                   {item.name}
                   <motion.span 
@@ -109,26 +106,57 @@ const NavBar = () => {
                 Generate
               </Link>
               <button 
-                onClick={() => setMobileMenuOpen(true)}
-                className="text-gray-300 hover:text-white focus:outline-none p-1"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-gray-300 hover:text-white focus:outline-none p-2 cursor-pointer"
               >
-                <div className="flex flex-col space-y-1">
-                  {[...Array(3)].map((_, i) => (
-                    <motion.div 
-                      key={i}
-                      className="w-5 h-0.5 bg-gray-300"
-                      animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                      transition={{ duration: 0.2 }}
-                    />
-                  ))}
-                </div>
+                {/* Three dots that transform into a triangle when clicked */}
+                <motion.div
+                  className="relative w-6 h-6"
+                  animate={mobileMenuOpen ? "open" : "closed"}
+                  variants={{
+                    open: { rotate: 0 },
+                    closed: { rotate: 0 }
+                  }}
+                >
+                  {/* Three dots */}
+                  <motion.div
+                    className="absolute top-0 left-0 w-1.5 h-1.5 bg-gray-300 rounded-full"
+                    variants={{
+                      open: { opacity: 0 },
+                      closed: { opacity: 1 }
+                    }}
+                  />
+                  <motion.div
+                    className="absolute top-1/2 left-0 w-1.5 h-1.5 bg-gray-300 rounded-full -translate-y-1/2"
+                    variants={{
+                      open: { opacity: 0 },
+                      closed: { opacity: 1 }
+                    }}
+                  />
+                  <motion.div
+                    className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-gray-300 rounded-full"
+                    variants={{
+                      open: { opacity: 0 },
+                      closed: { opacity: 1 }
+                    }}
+                  />
+                  
+                  {/* Triangle */}
+                  <motion.div
+                    className="absolute top-1/2 left-1/2 w-0 h-0 border-l-4 border-r-4 border-b-8 border-l-transparent border-r-transparent border-b-gray-300 -translate-x-1/2 -translate-y-1/2"
+                    variants={{
+                      open: { opacity: 1 },
+                      closed: { opacity: 0 }
+                    }}
+                  />
+                </motion.div>
               </button>
             </div>
           )}
         </div>
       </div>
 
-      {/* Mobile Sidebar */}
+      {/* Mobile Sidebar - Changed to black background */}
       <AnimatePresence>
         {mobileMenuOpen && !isDesktop && (
           <>
@@ -137,14 +165,14 @@ const NavBar = () => {
               animate={{ opacity: 0.5 }}
               exit={{ opacity: 0 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black z-40"
+              className="fixed inset-0 bg-black z-40 cursor-pointer"
             />
             <motion.div 
               variants={sidebarVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="fixed top-0 right-0 h-full w-64 bg-gray-900 z-50 shadow-xl"
+              className="fixed top-0 right-0 h-full w-64 bg-black z-50 shadow-xl border-l border-gray-800"
             >
               <div className="flex justify-between items-center p-4 border-b border-gray-800">
                 <div className="flex items-center space-x-2">
@@ -157,7 +185,7 @@ const NavBar = () => {
                 </div>
                 <button 
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-gray-300 hover:text-white p-1"
+                  className="text-gray-300 hover:text-white p-1 cursor-pointer"
                 >
                   <FiX className="w-6 h-6" />
                 </button>
@@ -168,7 +196,7 @@ const NavBar = () => {
                     key={item.path}
                     to={item.path}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center space-x-3 text-gray-300 hover:text-white p-3 rounded-lg hover:bg-gray-800 transition-colors"
+                    className="flex items-center space-x-3 text-gray-300 hover:text-white p-3 rounded-lg hover:bg-gray-900 transition-colors cursor-pointer"
                   >
                     <span className="text-lg">{item.icon}</span>
                     <span>{item.name}</span>
@@ -177,7 +205,7 @@ const NavBar = () => {
                 <div className="pt-4 border-t border-gray-800">
                   <Link 
                     to="/profile"
-                    className="flex items-center space-x-3 text-gray-300 hover:text-white p-3 rounded-lg hover:bg-gray-800 transition-colors"
+                    className="flex items-center space-x-3 text-gray-300 hover:text-white p-3 rounded-lg hover:bg-gray-900 transition-colors cursor-pointer"
                   >
                     <FiUser className="text-lg" />
                     <span>My Profile</span>

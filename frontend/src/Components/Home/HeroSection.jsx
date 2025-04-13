@@ -41,7 +41,7 @@ const HeroSection = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-purple-600 to-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg"
+            className="bg-gradient-to-r from-purple-600 to-blue-500 cursor-pointer text-white px-8 py-4 rounded-xl font-bold text-lg"
           >
             Start Creating Now
             <FiArrowRight className="inline ml-2" />
@@ -50,7 +50,7 @@ const HeroSection = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="border border-gray-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-900/50"
+            className="border border-gray-600 cursor-pointer text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-900/50"
           >
             Explore Gallery
           </motion.button>
