@@ -8,6 +8,7 @@ import TestimonialsSection from '../Components/Home/TestimonialsSection '
 import CtaSection from '../Components/Home/CtaSection '
 import Footer from '../Components/Home/Footer'
 import ArtifyLoader from '../Components/Home/ArtifyLoader'
+import ExploreGallery from '../Components/Home/ExploreGallery'
 // Make sure this path is correct
 
 const Home = () => {
@@ -31,6 +32,7 @@ const Home = () => {
       <NavBar/>
       <HeroSection/>
       <FeaturesSection/>
+      <ExploreGallery/>
       <ShowcaseSection/>
       <TestimonialsSection/>
       <CtaSection/>
